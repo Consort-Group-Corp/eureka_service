@@ -42,7 +42,6 @@ pipeline {
     stage('Build core_api_dto to local maven') {
       when {
         expression {
-          // Проверяем, нужен ли core_api_dto для Eureka
           return fileExists('build.gradle') &&
                  sh(script: 'grep -q "core_api_dto" build.gradle', returnStatus: true) == 0
         }
